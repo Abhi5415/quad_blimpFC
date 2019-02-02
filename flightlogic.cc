@@ -28,7 +28,7 @@ int eMotorPin = 11;
 int sMotorPin = 12;
 int wMotorPin = 13;
 
-void throttle(int val)
+void throttleControl(int val)
 {
   analogWrite(nMotorPin, val);
   analogWrite(eMotorPin, val);
@@ -79,7 +79,7 @@ void loop()
 
   // ---- mapping values ----
 
-  throttle(map(throttle, 1088, 1888, 0, 255)); // all throttle controls
+  throttleControl(map(throttle, 1088, 1888, 0, 255)); // all throttle controls
   if (rudder > 1495 || rudder < 1475)
   {
     rudder = map(rudder, 1485, 1888, 0, 90) + 90;
